@@ -1,0 +1,67 @@
+/* 
+ 264653
+ 2a9d8f
+ e9c46a
+ f4a261
+ e76f51
+*/
+
+header {
+  background: #264653;
+  color: white;
+  padding: 5px;
+  height: 20%;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: right;
+  border-left: 1px solid #ffffff;
+}
+nav ul li:last-child {
+  border-left: none;
+}
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 28px;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  background-color: black;
+}
+nav ul li a:active {
+  background-color: red;
+}
+nav img {
+  padding: 4px;
+}
+section {
+  background: #2a9d8f;
+  display: block;
+}
+
+footer {
+  background: #e9c46a;
+  color: white;
+  padding: 5px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li {
+  border-left: none;
+}
