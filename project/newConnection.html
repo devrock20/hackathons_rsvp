@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href= "css/style.css">
+    <title>Charlotte Hackthons Meetup</title>
+</head>
+<body>
+<main>
+    <header>
+        <nav>
+            <ul>
+                <a href="index.html"><img src = "images/logo.png"></a>
+                <li><a href="#">Sign up</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Start a new connection</a></li>
+            </ul>
+        </nav>
+        <div class ="bottomheader">
+            <a href="connections.html">Connections</a></li>
+        </div>
+
+    </header>
+    <section class="content-section">
+        <div class="content-wrap">
+            <form id="newconform" action="connections.html">
+                <div class="form-content">
+                    <label for="topic">Topic : </label>
+                    <input type="text" name=topic id=name value="topic">
+                </div>
+                <div class="form-content">
+                    <label for="title">Title : </label>
+                    <input type="text" name=title id=title value="title">
+                </div>
+                <div class="form-content">
+                    <label for="host">Host : </label>
+                    <input type="text" name=host id=host value="host">
+                </div>
+                <div class="form-content">
+                    <label for="details">Details : </label>
+                    <textarea rows="4" cols="50" name="details" form="newconform">descripition</textarea>
+                </div>
+                <div class="form-content">
+                    <label for="where">Where : </label>
+                    <input type="text" name=where id=where value="location">
+                </div>
+                <div class="form-content">
+                    <label for="when">When : </label>
+                    <input type="date" name=when id=when >
+                </div>
+                <div class="form-content">
+                    <label for="start">Start : </label>
+                    <input type="time" name=time id=time >
+                </div>
+                <div class="form-content">
+                    <label for="end">End : </label>
+                    <input type="time" name=end id=end >
+                </div>
+                <div class="form-content">
+                    <label for="img_url">Image Url : </label>
+                    <input type="url" name=imgurl id=imgurl >
+                </div>
+                <div class="form-content">
+                    <input class="content-btn" type="submit" value="Create Connection">
+                </div>
+            </form>
+
+        </div>
+    </section>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#">&copy; Charlotte Hackthons</a></li>
+                <li><a href=#>ABOUT</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </footer>
+</main>
+</body>
+</html>
