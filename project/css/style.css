@@ -39,6 +39,13 @@ nav img {
   height: 100px;
   width: 100px;
 }
+.nav-image {
+  float: left;
+  border-left: none;
+  margin-left: -22px;
+  margin-right: -11px;
+}
+
 .bottomheader {
   padding-top: 5px;
   padding-left: 5px;
