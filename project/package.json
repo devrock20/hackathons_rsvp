@@ -1,0 +1,14 @@
+{
+  "name": "nbad-project2",
+  "version": "1.0.0",
+  "description": "Project 2 Website with MVC structure",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Satyadev Tummala",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}

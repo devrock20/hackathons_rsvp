@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href= "css/style.css">
-    <title>Charlotte Hackthons Meetup</title>
-</head>
+<%- include('./partials/header.ejs')%>
 <body>
 <main>
     <header>
         <nav>
             <ul>
-                <li class="nav-image"><a href="index.html"><img src = "images/logo.png" alt="site-brand"></a></li>
+                <li class="nav-image"><a href="index.html"><img src = "images/new_logo.png" alt="site-brand"></a></li>
                 <li><a href="#">Sign up</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Start a new connection</a></li>
@@ -66,15 +59,6 @@
             </form>
 
         </div>
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="#">&copy; Charlotte Hackthons</a></li>
-                <li><a href=#>ABOUT</a></li>
-                <li><a href="#">CONTACT US</a></li>
-            </ul>
-        </nav>
-    </footer>
-</main>
+<%- include('./partials/footer.ejs')%>
 </body>
 </html>

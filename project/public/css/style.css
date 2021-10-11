@@ -24,6 +24,7 @@ nav ul li:last-child {
 nav ul li a {
   display: block;
   color: white;
+  font-size: 20px;
   text-align: center;
   padding: 14px 28px;
   text-decoration: none;
@@ -46,7 +47,19 @@ nav img {
   margin-right: -11px;
 }
 
+.nav-center {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+h1 {
+  font-size: 50px;
+  line-height: 1;
+}
 .bottomheader {
+  font-size: 20px;
   padding-top: 5px;
   padding-left: 5px;
   padding-bottom: 10px;
@@ -62,8 +75,11 @@ nav img {
 
 body {
   background-color: #2a9d8f;
+  overflow: hidden;
 }
 .content-wrap {
+  font-size: 18px;
+  color: beige;
   max-width: 900px;
   width: 85%;
   margin: 230px auto;
