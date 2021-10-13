@@ -113,16 +113,16 @@ exports.save = (hackthon) => {
 
 //update hackthon by id
 exports.updateById = (id, newhackthon) => {
-  let hackthons = hackthons.find((hackthon) => hackthon.id === id);
+  let hackthon = hackthons.find((hackthon) => hackthon.id === id);
   if (hackthon) {
-    hackthons.name = newhackthon.name;
-    hackthons.date = newhackthon.date;
-    hackthons.start_time = newhackthon.start_time;
-    hackthons.end_time = newhackthon.end_time;
-    hackthons.location = newhackthon.location;
-    hackthons.image = newhackthon.image;
-    hackthons.host = newhackthon.host;
-    hackthons.details = newhackthon.details;
+    hackthon.name = newhackthon.name;
+    hackthon.date = newhackthon.date;
+    hackthon.start_time = newhackthon.start_time;
+    hackthon.end_time = newhackthon.end_time;
+    hackthon.location = newhackthon.location;
+    hackthon.image = newhackthon.image;
+    hackthon.host = newhackthon.host;
+    hackthon.details = newhackthon.details;
     return true;
   } else {
     return false;
@@ -130,7 +130,7 @@ exports.updateById = (id, newhackthon) => {
 };
 
 //delete hackthon by id
-exports.deletebyId = (id) => {
+exports.deleteById = (id) => {
   let index = hackthons.findIndex((hackthon) => hackthon.id === id);
   if (index !== -1) {
     hackthons.splice(index, 1);

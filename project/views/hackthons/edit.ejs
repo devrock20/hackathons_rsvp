@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs")%>
 <div class="content-wrap">
-    <form id="newconform" action="/hackthons/<%= hackthon.id%>?_method=PUT" , method="POST">
+    <form>
         <div class="form-content">
             <label>Title : </label>
             <input type="text" name="name" id="name" value="<%= hackthon.name%>">
@@ -31,10 +31,11 @@
         </div>
         <div class="form-content">
             <label>Image Url : </label>
-            <input type="url" name="image" id="image" value="<%= hackthon.image%>"">
+            <input type="text" name="image" id="image" value="<%= hackthon.image%>"">
         </div>
         <div class="form-content">
-            <input class="content-btn" type="submit" value="Update hackthon">
+            <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackthons/<%= hackthon.id%>?_method=PUT">Update Hackthon</button>
+
         </div>
     </form>
 

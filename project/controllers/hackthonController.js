@@ -37,7 +37,6 @@ exports.show = (req, res, next) => {
 exports.edit = (req, res, next) => {
   let id = req.params.id;
   let hackthon = model.findById(id);
-  console.log(hackthon);
   if (hackthon) {
     res.render("./hackthons/edit", { hackthon });
   } else {
@@ -52,7 +51,7 @@ exports.update = (req, res) => {
   let hackthon = req.body;
   let id = req.params.id;
   if (model.updateById(id, hackthon)) {
-    res.redirect("/hackthons/edit");
+    res.redirect("/hackthons/" + id);
   } else {
     let err = new Error("Cannot find a Hackthon with id " + id);
     err.status = 404;
