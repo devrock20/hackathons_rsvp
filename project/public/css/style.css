@@ -75,7 +75,7 @@ h1 {
 
 body {
   background-color: #2a9d8f;
-  overflow: hidden;
+  overflow: auto;
 }
 .content-wrap {
   font-size: 18px;
@@ -83,7 +83,7 @@ body {
   max-width: 900px;
   width: 85%;
   margin: 230px auto;
-  padding: 60px 0;
+  padding: 18px 0;
 }
 .content-item img {
   float: left;

@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs')%>
+        <div class="content-wrap">
+            <form id="newconform" action="/hackthons" , method="POST">
+                <div class="form-content">
+                    <label>Topic : </label>
+                    <input type="text" name="topic" id="topic" value="topic">
+                </div>
+                <div class="form-content">
+                    <label>Title : </label>
+                    <input type="text" name="name" id="name" value="title">
+                </div>
+                <div class="form-content">
+                    <label>Host : </label>
+                    <input type="text" name="host" id="host" value="host">
+                </div>
+                <div class="form-content">
+                    <label>Details : </label>
+                    <textarea rows="4" cols="50" name="details" id="details" form="newconform">descripition</textarea>
+                </div>
+                <div class="form-content">
+                    <label>Where : </label>
+                    <input type="text" name="location" id="location" value="location">
+                </div>
+                <div class="form-content">
+                    <label>When : </label>
+                    <input type="date" name="date" id="date" >
+                </div>
+                <div class="form-content">
+                    <label>Start : </label>
+                    <input type="time" name="start_time" id="start_time" >
+                </div>
+                <div class="form-content">
+                    <label>End : </label>
+                    <input type="time" name="end_time" id="end_time" >
+                </div>
+                <div class="form-content">
+                    <label>Image Url : </label>
+                    <input type="url" name="image" id="image" >
+                </div>
+                <div class="form-content">
+                    <input class="content-btn" type="submit" value="Create Connection">
+                </div>
+            </form>
+
+        </div>
+<%- include('../partials/footer.ejs')%>
+</body>
+</html>

@@ -2,7 +2,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const methodOverdie = require("method-override");
-const connectionRoutes = require("./routes/connectionRoutes");
+const hackthonRoutes = require("./routes/hackthonRoutes");
 
 //create application
 const app = express();
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use("/connection", connectionRoutes);
+app.use("/hackthons", hackthonRoutes);
 
 app.use((req, res, next) => {
   let err = new Error("The server cannot locate " + req.url);

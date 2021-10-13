@@ -1,30 +1,31 @@
 //model require
-const model = require("../models/connections");
+const model = require("../models/hackthons");
 
 // shows all the hackthons
-exports.connections = (req, res) => {
-  let connections = model.getConnections();
-  let categoryNames = model.getConnectionTopics();
-  res.render("./connections/index", { connections, categoryNames });
+exports.index = (req, res) => {
+  let hackthons = model.getHackthons();
+  let categoryNames = model.getHackthonTopics();
+  res.render("./hackthons/index", { hackthons, categoryNames });
 };
 // Start a new hackthon button -> creating new form
 exports.new = (req, res, next) => {
-  res.render("./connections/create");
+  res.render("./hackthons/create");
 };
 
 // create (post) the new hackthon
 exports.create = (req, res) => {
-  let connection = req.body;
-  model.save(connection);
-  res.redirect("/connections");
+  let hackthon = req.body;
+  console.log(hackthon);
+  model.save(hackthon);
+  res.redirect("/hackthons");
 };
 
 // each hackthon details
-exports.detail = (req, res, next) => {
+exports.show = (req, res, next) => {
   let id = req.params.id;
-  let connection = model.findById(id);
-  if (connection) {
-    res.render("./connections/show", { connection });
+  let hackthon = model.findById(id);
+  if (hackthon) {
+    res.render("./hackthons/show", { hackthon });
   } else {
     let err = new Error("Cannot find a Hackthon with id " + id);
     err.status = 404;
@@ -35,9 +36,10 @@ exports.detail = (req, res, next) => {
 //Calling Edit page to edit the hackthon detail
 exports.edit = (req, res, next) => {
   let id = req.params.id;
-  let connection = model.findById(id);
-  if (connection) {
-    res.render("./connections/edit", { connection });
+  let hackthon = model.findById(id);
+  console.log(hackthon);
+  if (hackthon) {
+    res.render("./hackthons/edit", { hackthon });
   } else {
     let err = new Error("Cannot find a Hackthon with id " + id);
     err.status = 404;
@@ -47,10 +49,10 @@ exports.edit = (req, res, next) => {
 
 //Update the hackthon details
 exports.update = (req, res) => {
-  let connection = req.body;
+  let hackthon = req.body;
   let id = req.params.id;
-  if (model.updateById(id, connection)) {
-    res.redirect("/connections/edit");
+  if (model.updateById(id, hackthon)) {
+    res.redirect("/hackthons/edit");
   } else {
     let err = new Error("Cannot find a Hackthon with id " + id);
     err.status = 404;
@@ -61,7 +63,7 @@ exports.update = (req, res) => {
 // delete the meet
 exports.delete = (req, res, next) => {
   let id = req.params.id;
-  if (model.deleteById(id)) res.redirect("/connections/");
+  if (model.deleteById(id)) res.redirect("/hackthons/");
   else {
     let err = new Error("Cannot find a Hackthon with id " + id);
     err.status = 404;

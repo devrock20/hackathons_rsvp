@@ -9,6 +9,7 @@
   "author": "Satyadev Tummala",
   "license": "ISC",
   "dependencies": {
+    "luxon": "^2.0.2",
     "uuid": "^8.3.2"
   }
 }
