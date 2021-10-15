@@ -1,11 +1,11 @@
 const { DateTime } = require("luxon");
 const { v4: uuidv4 } = require("uuid");
 
-const hackthons = [
+const hackathons = [
   {
     id: uuidv4(),
     topic: "Web Development workshop",
-    name: "Web Developer workshop",
+    name: "Node Js Workshop",
     details:
       "This Event is for all those who are new to web Developement and want to pusue a new Career in web developemnt",
     host: "Hosted by queen city webdev",
@@ -42,7 +42,7 @@ const hackthons = [
   },
   {
     id: uuidv4(),
-    topic: "Mobile Development Hackthon",
+    topic: "Mobile Development hackathon",
     name: "Andrioid Development workshop",
     details:
       "In this workshop you will be a learn how to develop an android app and publish in android studio",
@@ -55,7 +55,7 @@ const hackthons = [
   },
   {
     id: uuidv4(),
-    topic: "Mobile Development Hackthon",
+    topic: "Mobile Development hackathon",
     name: "IOS development workshop",
     details:
       "In this workshop you will be a learn how to develop an ios app and publish in app store",
@@ -68,7 +68,7 @@ const hackthons = [
   },
   {
     id: uuidv4(),
-    topic: "Mobile Development Hackthon",
+    topic: "Mobile Development hackathon",
     name: "Cross application development using flutter",
     details:
       "This a workshop which outlines cross application development using flutter",
@@ -80,15 +80,15 @@ const hackthons = [
     image: "/images/conection_image.png",
   },
 ];
-//get all hackthons
-exports.getHackthons = () => {
-  return hackthons;
+//get all hackathons
+exports.getHackathons = () => {
+  return hackathons;
 };
 
-//get hackthon topics
-exports.getHackthonTopics = () => {
+//get hackathon topics
+exports.getHackathonTopics = () => {
   let names = undefined;
-  hackthons.forEach((element) => {
+  hackathons.forEach((element) => {
     let topicName = element.topic;
     if (names === undefined) {
       names = [];
@@ -100,40 +100,41 @@ exports.getHackthonTopics = () => {
   return names;
 };
 
-//find_hackthon by id
+//find_hackathon by id
 exports.findById = (id) => {
-  return hackthons.find((hackthon) => hackthon.id === id);
+  return hackathons.find((hackathon) => hackathon.id === id);
 };
 
-//create new hackthon
-exports.save = (hackthon) => {
-  hackthon.id = uuidv4();
-  hackthons.push(hackthon);
+//create new hackathon
+exports.save = (hackathon) => {
+  hackathon.id = uuidv4();
+  hackathons.push(hackathon);
 };
 
-//update hackthon by id
-exports.updateById = (id, newhackthon) => {
-  let hackthon = hackthons.find((hackthon) => hackthon.id === id);
-  if (hackthon) {
-    hackthon.name = newhackthon.name;
-    hackthon.date = newhackthon.date;
-    hackthon.start_time = newhackthon.start_time;
-    hackthon.end_time = newhackthon.end_time;
-    hackthon.location = newhackthon.location;
-    hackthon.image = newhackthon.image;
-    hackthon.host = newhackthon.host;
-    hackthon.details = newhackthon.details;
+//update hackathon by id
+exports.updateById = (id, newhackathon) => {
+  let hackathon = hackathons.find((hackathon) => hackathon.id === id);
+  if (hackathon) {
+    hackathon.name = newhackathon.name;
+    hackathon.topic = newhackathon.topic;
+    hackathon.date = newhackathon.date;
+    hackathon.start_time = newhackathon.start_time;
+    hackathon.end_time = newhackathon.end_time;
+    hackathon.location = newhackathon.location;
+    hackathon.image = newhackathon.image;
+    hackathon.host = newhackathon.host;
+    hackathon.details = newhackathon.details;
     return true;
   } else {
     return false;
   }
 };
 
-//delete hackthon by id
+//delete hackathon by id
 exports.deleteById = (id) => {
-  let index = hackthons.findIndex((hackthon) => hackthon.id === id);
+  let index = hackathons.findIndex((hackathon) => hackathon.id === id);
   if (index !== -1) {
-    hackthons.splice(index, 1);
+    hackathons.splice(index, 1);
     return true;
   } else {
     return false;

@@ -22,7 +22,7 @@ app.use(methodOverdie("_method"));
 //main routes
 app.use("/", mainRoutes);
 
-app.use("/hackthons", hackthonRoutes);
+app.use("/hackathons", hackthonRoutes);
 
 app.use((req, res, next) => {
   let err = new Error("The server cannot locate " + req.url);

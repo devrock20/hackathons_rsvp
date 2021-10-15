@@ -53,7 +53,9 @@ nav img {
   top: 50%;
   left: 45%;
   transform: translate(-50%, -50%);
+  border-left: none;
 }
+
 h1 {
   font-size: 50px;
   line-height: 1;
@@ -166,4 +168,32 @@ footer ul {
 
 footer ul li {
   border-left: none;
+}
+
+.icon_layout {
+  margin-left: auto;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
 }

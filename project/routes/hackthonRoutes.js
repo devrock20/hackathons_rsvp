@@ -1,5 +1,5 @@
 const express = require("express");
-const controller = require("../controllers/hackthonController");
+const controller = require("../controllers/hackathonController");
 
 const router = express.Router();
 //GET /hackthons : send all hackthonss to the user

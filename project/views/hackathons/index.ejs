@@ -6,18 +6,21 @@
             <% categoryNames.forEach((category) => { %>
                 <h2><%=category %></h2>
                 <div class="content-item">
-                    <% hackthons.forEach((hackthon) => { %>
-                        <% if (hackthon.topic === category ) { %>
+                    <% hackathons.forEach((hackathon) => { %>
+                        <% if (hackathon.topic === category ) { %>
                         <ul>
-                            <li><a class= "content-btn" href="/hackthons/<%=hackthon.id %>"><%=hackthon.name%></a></li>
+                            <li><a class= "content-btn" href="/hackathons/<%=hackathon.id %>"><%=hackathon.name%></a></li>
                         </ul>
                         <%}
                     })%>
                 </div>
              <% } )%>
          <% }else {%>
-             <p>No Hackthons to display</p>
+             <p>No hackathons to display</p>
              <% } %>
+        </section>
+    </div>
+    </section>
 <%- include('../partials/footer.ejs')%>
 </body>
 </html>

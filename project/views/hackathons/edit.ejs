@@ -1,0 +1,46 @@
+<%- include("../partials/header.ejs")%>
+<div class="content-wrap">
+    <form id="edit-form">
+        <div class="form-content">
+            <label>Topic : </label>
+            <input type="text" name="topic" id="topic" value="<%= hackathon.topic%>">
+        </div>
+        <div class="form-content">
+            <label>Title : </label>
+            <input type="text" name="name" id="name" value="<%= hackathon.name%>">
+        </div>
+        <div class="form-content">
+            <label>Host : </label>
+            <input type="text" name="host" id="host" value="<%= hackathon.host%>">
+        </div>
+        <div class="form-content">
+            <label>Details : </label>
+            <textarea rows="4" cols="50" name="details"  form="edit-form"><%= hackathon.details%></textarea>
+        </div>
+        <div class="form-content">
+            <label>location : </label>
+            <input type="text" name="location" id="location" value="<%= hackathon.location%>">
+        </div>
+        <div class="form-content">
+            <label>Date : </label>
+            <input type="date" name="date" id="date" value="<%= hackathon.date%>">
+        </div>
+        <div class="form-content">
+            <label>Start : </label>
+            <input type="time" name="start_time" id="start_time" value="<%= hackathon.start_time%>">
+        </div>
+        <div class="form-content">
+            <label>End : </label>
+            <input type="time" name="end_time" id="end_time" value="<%= hackathon.end_time%>">
+        </div>
+        <div class="form-content">
+            <label>Image Url : </label>
+            <input type="text" name="image" id="image" value="<%= hackathon.image%>">
+        </div>
+        <div class="form-content">
+            <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=PUT">Update hackathon</button>
+
+        </div>
+    </form>
+</div>
+<%- include("../partials/footer.ejs")%>

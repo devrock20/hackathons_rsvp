@@ -1,0 +1,20 @@
+<%- include('../partials/header.ejs')%>
+    <div class="content-wrap divider">
+        <section class="content-item">
+            <h2><%= hackathon.name%></h2>
+            <img src="<%= hackathon.image%>" alt="category-image">
+            <p><strong>Host : </strong><%= hackathon.host%>
+            <p><strong>Date : </strong><%= hackathon.date%></p>
+            <p><strong>Time : </strong><%= hackathon.start_time%> - <%= hackathon.end_time%></p> 
+            <p><strong>Location : </strong><%= hackathon.location%></p>
+            <form>
+            <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
+            <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=DELETE">Delete</button>
+            </form>
+        </section>
+        <section class="content-item">
+            <h2>Details</h2>
+            <p><%= hackathon.details%></p>
+        </section>
+      </div>
+<%- include('../partials/footer.ejs')%>
