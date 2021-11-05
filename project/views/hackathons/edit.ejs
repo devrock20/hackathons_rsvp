@@ -3,15 +3,15 @@
     <form id="edit-form">
         <div class="form-content">
             <label>Topic : </label>
-            <input type="text" name="topic" id="topic" value="<%= hackathon.topic%>">
+            <input type="text" name="connection_topic" id="topic" value="<%= hackathon.connection_topic%>">
         </div>
         <div class="form-content">
             <label>Title : </label>
-            <input type="text" name="name" id="name" value="<%= hackathon.name%>">
+            <input type="text" name="connection_name" id="name" value="<%= hackathon.connection_name%>">
         </div>
         <div class="form-content">
             <label>Host : </label>
-            <input type="text" name="host" id="host" value="<%= hackathon.host%>">
+            <input type="text" name="host_name" id="host" value="<%= hackathon.host_name%>">
         </div>
         <div class="form-content">
             <label>Details : </label>
@@ -35,7 +35,7 @@
         </div>
         <div class="form-content">
             <label>Image Url : </label>
-            <input type="text" name="image" id="image" value="<%= hackathon.image%>">
+            <input type="text" name="image_url" id="image" value="<%= hackathon.image_url%>">
         </div>
         <div class="form-content">
             <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=PUT">Update hackathon</button>

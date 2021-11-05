@@ -1,9 +1,9 @@
 <%- include('../partials/header.ejs')%>
     <div class="content-wrap divider">
         <section class="content-item">
-            <h2><%= hackathon.name%></h2>
-            <img src="<%= hackathon.image%>" alt="category-image">
-            <p><strong>Host : </strong><%= hackathon.host%>
+            <h2><%= hackathon.connection_name%></h2>
+            <img src="<%= hackathon.image_url%>" alt="category-image">
+            <p><strong>Host : </strong><%= hackathon.host_name%>
             <p><strong>Date : </strong><%= hackathon.date%></p>
             <p><strong>Time : </strong><%= hackathon.start_time%> - <%= hackathon.end_time%></p> 
             <p><strong>Location : </strong><%= hackathon.location%></p>

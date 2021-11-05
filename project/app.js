@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const methodOverdie = require("method-override");
 const hackthonRoutes = require("./routes/hackthonRoutes");
 const mainRoutes = require("./routes/mainRoutes");
+const mongoose = require("mongoose");
 
 //create application
 const app = express();
@@ -11,7 +12,21 @@ const app = express();
 //configure app
 let port = 3000;
 let host = "localhost";
+
 app.set("view engine", "ejs");
+
+//connect to database
+mongoose
+  .connect("mongodb://localhost:27017/rsvpsite", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(port, host, () => {
+      console.log("Server is running on port", port);
+    });
+  })
+  .catch((err) => console.log(err.message));
 
 //mount middleware functions
 app.use(express.static("public"));
@@ -38,9 +53,4 @@ app.use((err, req, res, next) => {
   }
   res.status(err.status);
   res.render("error", { error: err });
-});
-
-//start the server
-app.listen(port, host, () => {
-  console.log("server is running on port", port);
 });

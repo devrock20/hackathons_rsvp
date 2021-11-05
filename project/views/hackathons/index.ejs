@@ -7,9 +7,9 @@
                 <h2><%=category %></h2>
                 <div class="content-item">
                     <% hackathons.forEach((hackathon) => { %>
-                        <% if (hackathon.topic === category ) { %>
+                        <% if (hackathon.connection_topic === category ) { %>
                         <ul>
-                            <li><a class= "content-btn" href="/hackathons/<%=hackathon.id %>"><%=hackathon.name%></a></li>
+                            <li><a class= "content-btn" href="/hackathons/<%=hackathon.id %>"><%=hackathon.connection_name%></a></li>
                         </ul>
                         <%}
                     })%>
