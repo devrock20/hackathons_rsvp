@@ -3,39 +3,39 @@
     <form id="edit-form">
         <div class="form-content">
             <label>Topic : </label>
-            <input type="text" name="connection_topic" id="topic" value="<%= hackathon.connection_topic%>">
+            <input type="text" name="connection_topic" id="topic" value="<%= hackathon.connection_topic%>" required>
         </div>
         <div class="form-content">
             <label>Title : </label>
-            <input type="text" name="connection_name" id="name" value="<%= hackathon.connection_name%>">
+            <input type="text" name="connection_name" id="name" value="<%= hackathon.connection_name%>" required>
         </div>
         <div class="form-content">
             <label>Host : </label>
-            <input type="text" name="host_name" id="host" value="<%= hackathon.host_name%>">
+            <input type="text" name="host_name" id="host" value="<%= hackathon.host_name%>" required>
         </div>
         <div class="form-content">
             <label>Details : </label>
-            <textarea rows="4" cols="50" name="details"  form="edit-form"><%= hackathon.details%></textarea>
+            <textarea rows="4" cols="50" name="details"  form="edit-form" required><%= hackathon.details%></textarea>
         </div>
         <div class="form-content">
             <label>location : </label>
-            <input type="text" name="location" id="location" value="<%= hackathon.location%>">
+            <input type="text" name="location" id="location" value="<%= hackathon.location%>" required>
         </div>
         <div class="form-content">
             <label>Date : </label>
-            <input type="date" name="date" id="date" value="<%= hackathon.date%>">
+            <input type="date" name="date" id="date" value="<%= hackathon.date%>" required>
         </div>
         <div class="form-content">
             <label>Start : </label>
-            <input type="time" name="start_time" id="start_time" value="<%= hackathon.start_time%>">
+            <input type="time" name="start_time" id="start_time" value="<%= hackathon.start_time%>" required>
         </div>
         <div class="form-content">
             <label>End : </label>
-            <input type="time" name="end_time" id="end_time" value="<%= hackathon.end_time%>">
+            <input type="time" name="end_time" id="end_time" value="<%= hackathon.end_time%>" required>
         </div>
         <div class="form-content">
             <label>Image Url : </label>
-            <input type="text" name="image_url" id="image" value="<%= hackathon.image_url%>">
+            <input type="text" name="image_url" id="image" value="<%= hackathon.image_url%>" required>
         </div>
         <div class="form-content">
             <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=PUT">Update hackathon</button>
