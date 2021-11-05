@@ -1,0 +1,75 @@
+use rsvpsite
+show collections
+db.createCollection('hackthons')
+db.hackthons.insertMany([{
+    connection_topic: "Web Development workshop",
+    connection_name: "Node Js Workshop",
+    details:
+      "This Event is for all those who are new to web Developement and want to pusue a new Career in web developemnt",
+    host_name: "Hosted by queen city webdev",
+    date: "2021-10-13",
+    start_time: "09:00",
+    end_time: "12:00",
+    location: "Mariot conference center",
+    image_url: "/images/conection_image.png",
+  },
+  {
+    connection_topic: "Web Development workshop",
+    connection_name: "React js Developer workshop",
+    details: "This Event is an introcuctroy course for React devlopment",
+    host_name: "Hosted by queen city webdev",
+    date: "2021-10-16",
+    start_time: "13:00",
+    end_time: "16:00",
+    location: "Mariot conference center",
+    image_url: "/images/conection_image.png",
+  },
+  {
+    connection_topic: "Web Development workshop",
+    connection_name: "MERN Stack conference",
+    details:
+      "This Event is a conference to discuss latest advancements in MERN stack",
+    host_name: "Hosted by Unc charlotte CCI",
+    date: "2021-10-17",
+    start_time: "09:00",
+    end_time: "12:00",
+    location: "UNC Charlotte Popp Martin student union",
+    image_url: "/images/conection_image.png",
+  },
+  {
+    connection_topic: "Mobile Development hackathon",
+    connection_name: "Andrioid Development workshop",
+    details:
+      "In this workshop you will be a learn how to develop an android app and publish in android studio",
+    host_name: "Hosted by Codecademy",
+    date: "2021-10-17",
+    start_time: "09:00",
+    end_time: "12:00",
+    location: "Mariot conference center",
+    image_url: "/images/conection_image.png",
+  },
+  {
+    connection_topic: "Mobile Development hackathon",
+    connection_name: "IOS development workshop",
+    details:
+      "In this workshop you will be a learn how to develop an ios app and publish in app store",
+    host_name: "Hosted by Xcode developers",
+    date: "2021-10-17",
+    start_time: "13:00",
+    end_time: "16:00",
+    location: "Mariot conference center",
+    image_url: "/images/conection_image.png",
+  },
+  {
+    connection_topic: "Mobile Development hackathon",
+    connection_name: "Cross application development using flutter",
+    details:
+      "This a workshop which outlines cross application development using flutter",
+    host_name: "Hosted by Flutter",
+    date: "2021-10-17",
+    start_time: "17:00",
+    end_time: "19:00",
+    location: "UNC Charlotte CHSS Building",
+    image_url: "/images/conection_image.png",
+  },
+])
