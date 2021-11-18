@@ -74,6 +74,10 @@ h1 {
 .bottomheader a:hover {
   background-color: black;
 }
+.bottomheader strong {
+  float: right;
+  padding-right: 20px;
+}
 
 body {
   background-color: #2a9d8f;
@@ -196,4 +200,26 @@ footer ul li {
 .fa-twitter {
   background: #55acee;
   color: white;
+}
+
+.success {
+  background: rgba(243 218 42 / 70%);
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.error {
+  background: rgba(255, 102, 51, 0.7);
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
 }

@@ -16,13 +16,45 @@
                 <li class="nav-center">
                     <h1>Charlotte Area Hackathons</h1>
                 </li>
-                <li><a href="/">Sign up</a></li>
-                <li><a href="/">Login</a></li>
-                <li><a href="/hackathons/new">Start a new connection</a></li>
+                <%if(!user) {%>
+                    <li><a href='/users/new'>Sign Up</a></li>
+                    <li><a href='/users/login'>Login</a></li>
+                <%}else{%>
+                    <li><a href='/users/profile'>Profile</a></li>
+                    <li><a href='/users/logout'>Logout</a></li>
+                    <li><a href="/hackathons/new">Start a new connection</a></li>
+                <%}%>
+                
             </ul>
         </nav>
         <div class ="bottomheader">
             <a href="/hackathons">Connections</a>
+        
+        <% if(userFirstName) {%>
+            <strong>Welcome <%=userFirstName%></strong>
+        <%}%>
         </div>
+        <% if(errorMessages.length > 0) {%>
+            <% errorMessages.forEach(message=>{%>
+                <div class='error'>
+                    <%=message%>
+                </div>
+                <%});%>
+        <%}%>
+        
+        <% if(successMessages.length > 0) {%>
+            <% successMessages.forEach(message=>{%>
+                <div class='success'>
+                    <%=message%>
+                </div>
+            <%});%>
+                                    
+         <%}%>
+    
+       
     </header>
+    
+    
+    
+
 </main>

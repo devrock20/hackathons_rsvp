@@ -3,14 +3,17 @@
         <section class="content-item">
             <h2><%= hackathon.connection_name%></h2>
             <img src="<%= hackathon.image_url%>" alt="category-image">
-            <p><strong>Host : </strong><%= hackathon.host_name%>
+            <p><strong>Host : </strong><%= hackathon.host_name.firstName + ' ' + hackathon.host_name.lastName%></small>
             <p><strong>Date : </strong><%= hackathon.date%></p>
             <p><strong>Time : </strong><%= hackathon.start_time%> - <%= hackathon.end_time%></p> 
             <p><strong>Location : </strong><%= hackathon.location%></p>
             <form>
+            <%if(user == hackathon.host_name._id){%>
+            <%console.log(user)%>
             <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
             <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=DELETE">Delete</button>
             </form>
+            <%}%>
         </section>
         <section class="content-item">
             <h2>Details</h2>

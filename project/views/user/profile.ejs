@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%>
+<div class = "content-wrap">
+    <h2>Welcome, <%=user.firstName%></h2>
+    <%if(hackathons.length) {%>
+        <p>You have created the following hackathons</p>
+        <table>
+            <tr>
+                <th>Hackathon Name</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+            <%hackathons.forEach(hackathon => {%>
+                <th><%=hackathon.connection_name%></th>
+                <th><%=hackathon.connection_topic%></th>
+                <th>
+                    <form>
+                    <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
+                    <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=DELETE">Delete</button>
+                    </form>
+                </th>
+            
+            </tr>
+            <%});%>
+        </table>
+        
+    <%}else{%>
+        <p>You have not created any hackathons</p>
+    <%}%>
+    </div>
+    <%- include('../partials/footer.ejs')%>

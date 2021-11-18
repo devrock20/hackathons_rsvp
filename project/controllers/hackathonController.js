@@ -41,12 +41,17 @@ exports.new = (req, res, next) => {
 // create (post) the new hackathon
 exports.create = (req, res, next) => {
   let hackathon = new model(req.body); // create a new story document
+  hackathon.host_name = req.session.user;
   hackathon
     .save() //save the document in the database.
-    .then((hackthon) => res.redirect("/hackathons"))
+    .then((hackthon) => {
+      req.flash("success", "hackathon was created successfully");
+      res.redirect("/hackathons");
+    })
     .catch((err) => {
       if (err.name === "ValidationError") {
-        err.status = 400;
+        req.flash("error", err.message);
+        res.redirect("back");
       }
       next(err);
     });
@@ -55,13 +60,9 @@ exports.create = (req, res, next) => {
 // each hackathon details
 exports.show = (req, res, next) => {
   let id = req.params.id;
-  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    let err = new Error("Invalid Hackathon ID");
-    err.status = 400;
-    return next(err);
-  }
   model
     .findById(id)
+    .populate("host_name", "firstName lastName")
     .then((hackathon) => {
       if (hackathon) {
         res.render("./hackathons/show", { hackathon });
@@ -77,11 +78,6 @@ exports.show = (req, res, next) => {
 //Calling Edit page to edit the hackathon detail
 exports.edit = (req, res, next) => {
   let id = req.params.id;
-  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    let err = new Error("Invalid hackthon id");
-    err.status = 400;
-    return next(err);
-  }
   model
     .findById(id)
     .then((hackathon) => {
@@ -100,11 +96,6 @@ exports.edit = (req, res, next) => {
 exports.update = (req, res, next) => {
   let hackathon = req.body;
   let id = req.params.id;
-  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    let err = new Error("Invalid hackthon id");
-    err.status = 400;
-    return next(err);
-  }
   model
     .findByIdAndUpdate(id, hackathon, {
       useFindAndModify: false,
@@ -112,7 +103,7 @@ exports.update = (req, res, next) => {
     })
     .then((hackathon) => {
       if (hackathon) {
-        console.log(hackathon);
+        req.flash("success", "hackathon was updated successfully");
         res.redirect("/hackathons/" + id);
       } else {
         let err = new Error("Cannot find a hackathon with id " + id);
@@ -121,23 +112,19 @@ exports.update = (req, res, next) => {
       }
     })
     .catch((err) => {
-      if (err.name === "ValidationError") err.status = 400;
-      next(err);
+      if (err.name === "ValidationError") req.flash("error", err.message);
+      res.redirect("back");
     });
 };
 
 // delete the hackathon.
 exports.delete = (req, res, next) => {
   let id = req.params.id;
-  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    let err = new Error("Invalid hackthon id");
-    err.status = 400;
-    return next(err);
-  }
   model
     .findByIdAndDelete(id, { useFindAndModify: false })
     .then((hackathon) => {
       if (hackathon) {
+        req.flash("success", "hackathon was deleted successfully");
         res.redirect("/hackathons/");
       } else {
         let err = new Error("Cannot find a hackathon with id " + id);

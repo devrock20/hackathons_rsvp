@@ -28,8 +28,8 @@ const hackthonSchema = new Schema({
     required: [true, "end time is required"],
   },
   host_name: {
-    type: String,
-    required: [true, "host name is required"],
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   location: {
     type: String,

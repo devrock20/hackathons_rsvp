@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs')%>
+<div class="content-wrap">
+    <form id="loginform" action = '/users/login' method = 'POST'>
+        <div class="form-content">
+            <label>Email : </label>
+            <input type="email" id="email" name="email" class = "fixed-width" required></td>
+        </div>
+        <div class="form-content">
+            <label>Password :</label>
+            <input type="password" id="password" name="password" class = "fixed-width" minlength="8" required >
+        </div> 
+        <div class="form-content">
+            <input class="content-btn" type="submit" value="Login" required>
+    </form>
+    </div>
+<%- include('../partials/footer.ejs')%>
+
+
