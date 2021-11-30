@@ -1,0 +1,97 @@
+[{
+  "_id": {
+    "$oid": "6197cfa2cd547c8d0fbab8c5"
+  },
+  "connection_name": "Node Js Workshop",
+  "connection_topic": "Web Development workshop",
+  "details": "This Event is for all those who are new to web Developement and want to pusue a new Career in web developemnt",
+  "date": "2021-11-18",
+  "start_time": "11:23",
+  "end_time": "12:24",
+  "location": "Mariot conference center",
+  "image_url": "/images/conection_image.png",
+  "host_name": {
+    "$oid": "6197cebfcd547c8d0fbab8c2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6197cff1cd547c8d0fbab8c8"
+  },
+  "connection_name": "React js Developer workshop",
+  "connection_topic": "Web Development workshop",
+  "details": "This Event is an introcuctroy course for React devlopment",
+  "date": "2021-11-22",
+  "start_time": "11:25",
+  "end_time": "12:25",
+  "location": "Mariot conference center",
+  "image_url": "/images/conection_image.png",
+  "host_name": {
+    "$oid": "6197cebfcd547c8d0fbab8c2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6197d1e0cd547c8d0fbab8cb"
+  },
+  "connection_name": "Andrioid Development workshop",
+  "connection_topic": "Mobile Development hackathon",
+  "details": "In this workshop you will be a learn how to develop an android app and publish in android studio",
+  "date": "2021-11-22",
+  "start_time": "10:00",
+  "end_time": "23:00",
+  "location": "UNC Charlotte Popp Martin student union",
+  "image_url": "/images/conection_image.png",
+  "host_name": {
+    "$oid": "6197cebfcd547c8d0fbab8c2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6197d26ecd547c8d0fbab8d3"
+  },
+  "connection_name": "MERN Stack conference",
+  "connection_topic": "Web Development workshop",
+  "details": "This Event is a conference to discuss latest advancements in MERN stack",
+  "date": "2021-11-20",
+  "start_time": "09:00",
+  "end_time": "12:00",
+  "location": "UNC Charlotte Popp Martin student union",
+  "image_url": "/images/conection_image.png",
+  "host_name": {
+    "$oid": "6197d21fcd547c8d0fbab8ce"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6197d2bacd547c8d0fbab8d6"
+  },
+  "connection_name": "IOS development workshop",
+  "connection_topic": "Mobile Development hackathon",
+  "details": "In this workshop you will be a learn how to develop an ios app and publish in app store",
+  "date": "2021-11-20",
+  "start_time": "11:37",
+  "end_time": "12:38",
+  "location": "Mariot conference center",
+  "image_url": "/images/conection_image.png",
+  "host_name": {
+    "$oid": "6197d21fcd547c8d0fbab8ce"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6197d308cd547c8d0fbab8d9"
+  },
+  "connection_name": "Cross application development using flutter",
+  "connection_topic": "Mobile Development hackathon",
+  "details": "This a workshop which outlines cross application development using flutter",
+  "date": "2021-11-21",
+  "start_time": "09:00",
+  "end_time": "12:00",
+  "location": "UNC Charlotte CHSS Building",
+  "image_url": "/images/conection_image.png",
+  "host_name": {
+    "$oid": "6197d21fcd547c8d0fbab8ce"
+  },
+  "__v": 0
+}]
