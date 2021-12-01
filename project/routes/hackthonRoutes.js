@@ -27,4 +27,7 @@ router.put("/:id", validateId, isLoggedIn, isAuthor, controller.update);
 //DELETE /hackthons/:id, delete the story identified by id
 router.delete("/:id", validateId, isLoggedIn, isAuthor, controller.delete);
 
+//POST /hackthons/:id/rsvp : create new rsvp details
+router.post(":/:id/rsvp", validateId, isLoggedIn, controller.newRsvp);
+
 module.exports = router;

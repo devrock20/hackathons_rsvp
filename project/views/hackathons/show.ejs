@@ -14,6 +14,19 @@
             <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=DELETE">Delete</button>
             </form>
             <%}%>
+            <%else{%>
+            <form>
+                <input type="hidden" value="yes" >
+                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>/rsvp/">YES</button>
+            </form>
+            <form>
+                <input type="hidden" value="no" >
+                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>/rsvp/">NO</button>
+            </form>
+            <form>
+                <input type="hidden" value="maybe" >
+                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>/rsvp/">Maybe</button>
+            </form>
         </section>
         <section class="content-item">
             <h2>Details</h2>

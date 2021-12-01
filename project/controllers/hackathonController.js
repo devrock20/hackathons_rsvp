@@ -134,3 +134,6 @@ exports.delete = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+
+//create new rsvp
+exports.newRsvp = (req, res, next) => {};
