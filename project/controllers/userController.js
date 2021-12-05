@@ -1,5 +1,6 @@
 const model = require("../models/user");
 const hackathons = require("../models/hackathons");
+const rsvp = require("../models/rsvp");
 
 exports.new = (req, res) => {
   if (!req.session.user) return res.render("./user/new");
@@ -65,10 +66,17 @@ exports.login = (req, res, next) => {
 
 exports.profile = (req, res, next) => {
   let id = req.session.user;
-  Promise.all([model.findById(id), hackathons.find({ host_name: id })])
+  Promise.all([
+    model.findById(id),
+    hackathons.find({ host_name: id }),
+    rsvp
+      .find({ user_id: id })
+      .populate("hackathon_id", "connection_name connection_topic"),
+  ])
     .then((results) => {
-      const [user, hackathons] = results;
-      res.render("./user/profile", { user, hackathons });
+      const [user, hackathons, rsvps] = results;
+      console.log(rsvps);
+      res.render("./user/profile", { user, hackathons, rsvps });
     })
     .catch((err) => next(err));
 };

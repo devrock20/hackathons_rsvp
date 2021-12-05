@@ -3,6 +3,7 @@ const controller = require("../controllers/hackathonController");
 const { isLoggedIn } = require("../middlewares/auth");
 const { isAuthor } = require("../middlewares/auth");
 const { validateId } = require("../middlewares/validator");
+const { isRsvp } = require("../middlewares/auth");
 
 const router = express.Router();
 //GET /hackthons : send all hackthonss to the user
@@ -28,6 +29,9 @@ router.put("/:id", validateId, isLoggedIn, isAuthor, controller.update);
 router.delete("/:id", validateId, isLoggedIn, isAuthor, controller.delete);
 
 //POST /hackthons/:id/rsvp : create new rsvp details
-router.post(":/:id/rsvp", validateId, isLoggedIn, controller.newRsvp);
+router.post("/:id/rsvp", validateId, isLoggedIn, controller.newRsvp);
+
+//DELETE /hackathons/:id/rsvp : delete rsvp details
+router.delete("/:id/rsvp", validateId, isLoggedIn, controller.deleteRsvp);
 
 module.exports = router;

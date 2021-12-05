@@ -7,26 +7,19 @@
             <p><strong>Date : </strong><%= hackathon.date%></p>
             <p><strong>Time : </strong><%= hackathon.start_time%> - <%= hackathon.end_time%></p> 
             <p><strong>Location : </strong><%= hackathon.location%></p>
-            <form>
             <%if(user == hackathon.host_name._id){%>
-            <%console.log(user)%>
+            <form>
             <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
             <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=DELETE">Delete</button>
             </form>
-            <%}%>
-            <%else{%>
-            <form>
-                <input type="hidden" value="yes" >
-                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>/rsvp/">YES</button>
+            <%} else {%>
+            <p>Rsvp for this event</p>
+            <form method="POST">
+                <button class = "content-btn-yes" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Yes" name="status">YES</button>
+                <button class = "content-btn-no" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="No" name="status">NO</button>
+                <button class = "content-btn-maybe" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Maybe" name="status">Maybe</button>    
             </form>
-            <form>
-                <input type="hidden" value="no" >
-                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>/rsvp/">NO</button>
-            </form>
-            <form>
-                <input type="hidden" value="maybe" >
-                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>/rsvp/">Maybe</button>
-            </form>
+        <%}%>
         </section>
         <section class="content-item">
             <h2>Details</h2>

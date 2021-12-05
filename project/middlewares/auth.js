@@ -1,4 +1,7 @@
 const Hackathons = require("../models/hackathons");
+const Users = require("../models/user");
+const rsvpModel = require("../models/rsvp");
+const mongoose = require("mongoose");
 
 //Check if user is a guest.
 exports.isGuest = (req, res, next) => {

@@ -1,22 +1,21 @@
-const { Mongoose } = require("mongoose");
-
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const rsvpSchema = new Schema({
-  hackthon_id: {
-    type: Schema.type.ObjectId,
+  hackathon_id: {
+    type: Schema.Types.ObjectId,
     ref: "Hackthons",
   },
   user_id: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  rsvpSchema: {
+  rsvp_value: {
     type: String,
     validator: (rsvp_value) => {
-      let values = ["yes", "no", "maybe"];
-      return values.includes(rsvp_value.toLowerCase());
+      let values = ["YES", "NO", "MAYBE"];
+      return values.includes(rsvp_value);
     },
-    message: "Rsvp value can only be yes, no or maybe",
+    message: "Rsvp value can only be YES, NO or MAYBE",
     required: true,
   },
 });

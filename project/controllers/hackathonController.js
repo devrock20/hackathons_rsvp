@@ -1,5 +1,6 @@
 //model require
 const model = require("../models/hackathons");
+const rsvpModel = require("../models/rsvp");
 
 // shows all the hackathons
 exports.index = (req, res, next) => {
@@ -120,8 +121,10 @@ exports.update = (req, res, next) => {
 // delete the hackathon.
 exports.delete = (req, res, next) => {
   let id = req.params.id;
-  model
-    .findByIdAndDelete(id, { useFindAndModify: false })
+  Promise.all([
+    model.findByIdAndDelete(id, { useFindAndModify: false }),
+    rsvpModel.deleteMany({ hackathon_id: id }),
+  ])
     .then((hackathon) => {
       if (hackathon) {
         req.flash("success", "hackathon was deleted successfully");
@@ -136,4 +139,54 @@ exports.delete = (req, res, next) => {
 };
 
 //create new rsvp
-exports.newRsvp = (req, res, next) => {};
+exports.newRsvp = (req, res, next) => {
+  let rsvp_value = req.body.status.toUpperCase();
+  console.log(rsvp_value);
+  rsvpModel
+    .find({ hackathon_id: req.params.id, user_id: req.session.user })
+    .then((rsvpDoc) => {
+      if (rsvpDoc.length == 1) {
+        rsvpDoc[0].rsvp_value = rsvp_value;
+        rsvpModel
+          .findByIdAndUpdate(rsvpDoc[0]._id, rsvpDoc[0], {
+            useFindAndModify: false,
+            runValidators: true,
+          })
+          .then((rsvp) => {
+            if (rsvp) {
+              req.flash("success", "RSVP update successful");
+              res.redirect("/users/profile");
+            } else {
+              let err = new Error("Could not update RSVP");
+              err.status = 404;
+              next(err);
+            }
+          })
+          .catch((err) => next(err));
+      } else {
+        let rsvpDoc = new rsvpModel();
+        rsvpDoc.rsvp_value = rsvp_value;
+        rsvpDoc.user_id = req.session.user;
+        rsvpDoc.hackathon_id = req.params.id;
+        rsvpDoc
+          .save()
+          .then((rsvp) => {
+            req.flash("success", "RSVP creation successful");
+            res.redirect("/users/profile");
+          })
+          .catch((err) => next(err));
+      }
+    })
+    .catch((err) => next(err));
+};
+
+//delete rsvp
+exports.deleteRsvp = (req, res, next) => {
+  rsvpModel
+    .deleteOne({ hackathon_id: req.params.id, user_id: req.session.user })
+    .then((rsvp) => {
+      req.flash("success", "RSVP deleted successfully");
+      res.redirect("/users/profile");
+    })
+    .catch((err) => next(err));
+};

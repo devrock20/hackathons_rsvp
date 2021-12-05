@@ -137,6 +137,29 @@ body {
   display: inline-block;
 }
 
+.content-btn-yes {
+  color: #f7f7f7;
+  background: red;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.content-btn-no {
+  color: #f7f7f7;
+  background: green;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.content-btn-maybe {
+  color: #f7f7f7;
+  background: blue;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
 form.form-content {
   display: table;
 }

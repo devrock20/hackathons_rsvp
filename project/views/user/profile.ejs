@@ -23,9 +23,35 @@
             </tr>
             <%});%>
         </table>
-        
     <%}else{%>
         <p>You have not created any hackathons</p>
+    <%}%>
+    <h2>Rsvps</h2>
+    <%if(rsvps.length) {%>
+    <p>You have created the following rsvps</p>
+    <table>
+        <tr>
+            <th>Hackathon Name</th>
+            <th>Category</th>
+            <th>Going</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+        <%rsvps.forEach(rsvp => {%>
+            <th><%=rsvp.hackathon_id.connection_name%></th>
+            <th><%=rsvp.hackathon_id.connection_topic%></th>
+            <th><%=rsvp.rsvp_value%></th>
+            <th>
+                <form>
+                <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= rsvp.hackathon_id._id%>">Update</button>
+                <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= rsvp.hackathon_id._id%>/rsvp?_method=DELETE">Delete</button>
+                </form>
+            </th>
+        </tr>
+        <%});%>
+    </table>
+    <%}else{%>
+    <p>You have not created any rsvps</p>
     <%}%>
     </div>
     <%- include('../partials/footer.ejs')%>
