@@ -12,14 +12,15 @@
             <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
             <button class = "content-btn" type = "submit" formmethod = "POST" formaction="/hackathons/<%= hackathon.id%>?_method=DELETE">Delete</button>
             </form>
-            <%} else {%>
+            <%}else{%>
             <p>Rsvp for this event</p>
+            <p><strong>No of people attending the event <%= rsvps%></strong></p>
             <form method="POST">
                 <button class = "content-btn-yes" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Yes" name="status">YES</button>
                 <button class = "content-btn-no" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="No" name="status">NO</button>
                 <button class = "content-btn-maybe" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Maybe" name="status">Maybe</button>    
             </form>
-        <%}%>
+            <%}%>
         </section>
         <section class="content-item">
             <h2>Details</h2>

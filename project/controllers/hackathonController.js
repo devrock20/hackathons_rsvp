@@ -61,12 +61,15 @@ exports.create = (req, res, next) => {
 // each hackathon details
 exports.show = (req, res, next) => {
   let id = req.params.id;
-  model
-    .findById(id)
-    .populate("host_name", "firstName lastName")
-    .then((hackathon) => {
+  Promise.all([
+    model.findById(id).populate("host_name", "firstName lastName"),
+    rsvpModel.count({ hackathon_id: id, rsvp_value: "YES" }),
+  ])
+    .then((results) => {
+      const [hackathon, rsvps] = results;
       if (hackathon) {
-        res.render("./hackathons/show", { hackathon });
+        console.log(rsvps);
+        res.render("./hackathons/show", { hackathon, rsvps });
       } else {
         let err = new Error("Cannot find a hackathon with id " + id);
         err.status = 404;

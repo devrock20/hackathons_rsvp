@@ -40,3 +40,21 @@ exports.isAuthor = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+
+//check if rsvp_user and hacakthon user is same or not
+exports.isRsvpAuth = (req, res, next) => {
+  let id = req.params.id;
+  Hackathons.findById(id)
+    .then((Hackathons) => {
+      if (Hackathons) {
+        if (Hackathons.host_name == req.session.user) {
+          let err = new Error("Host Cannot rsvp the hackathon");
+          err.status = 401;
+          return next(err);
+        } else {
+          return next();
+        }
+      }
+    })
+    .catch((err) => next(err));
+};
