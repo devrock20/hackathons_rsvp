@@ -63,7 +63,7 @@ exports.show = (req, res, next) => {
   let id = req.params.id;
   Promise.all([
     model.findById(id).populate("host_name", "firstName lastName"),
-    rsvpModel.count({ hackathon_id: id, rsvp_value: "YES" }),
+    rsvpModel.count({ hackathon_id: id }),
   ])
     .then((results) => {
       const [hackathon, rsvps] = results;

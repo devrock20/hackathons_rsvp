@@ -7,7 +7,7 @@
             <p><strong>Date : </strong><%= hackathon.date%></p>
             <p><strong>Time : </strong><%= hackathon.start_time%> - <%= hackathon.end_time%></p> 
             <p><strong>Location : </strong><%= hackathon.location%></p>
-            <p><strong>No of people attending the event <%= rsvps%></strong></p>
+            <p><strong>No of people RSVPed for the event <%= rsvps%></strong></p>
             <%if(user == hackathon.host_name._id){%>
             <form>
             <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
