@@ -50,8 +50,9 @@ router.post(
   "/:id/rsvp",
   validateId,
   isLoggedIn,
-  isRsvpAuth,
   isValidRSVP,
+  validateResult,
+  isRsvpAuth,
   controller.newRsvp
 );
 

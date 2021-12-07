@@ -1,5 +1,6 @@
 const { body } = require("express-validator");
-const { validationResult } = require("express-validator");
+const { validationResult, check } = require("express-validator");
+const { DateTime } = require("luxon");
 
 exports.validateId = (req, res, next) => {
   let id = req.params.id;
@@ -70,16 +71,15 @@ exports.validateHackathon = [
     .notEmpty()
     .trim()
     .custom((value, { req }) => {
-      let date = new Date(req.body.date).toISOString();
-      let dateObj = Date.parse(date);
-      // let dateObj = DateTime.fromFormat(Date, "yyyy-MM-dd");
+      console.log(req.body.Date);
+      let entered_date = req.body.date;
+      let dateObj = DateTime.fromFormat(entered_date, "yyyy-MM-dd");
       if (!dateObj.isValid) {
         throw new Error("Date is not a valid Date");
       } else {
-        //let dateNow = DateTime.now().toFormat("yyyy-MM-dd");
-        let dateNow = Date.now();
-        let entredDate = new Date(req.body.date).getTime();
-        if (entredDate <= dateNow) {
+        let dateNow = DateTime.now().toFormat("yyyy-MM-dd");
+        console.log(dateNow);
+        if (entered_date <= dateNow) {
           throw new Error("Date should be after today's Date");
         } else return true;
       }
@@ -88,14 +88,14 @@ exports.validateHackathon = [
     .notEmpty()
     .trim()
     .custom((value, { req }) => {
-      let startTime = req.body.start_time;
-      let dateObj = DateTime.fromFormat(startTime, "HH:mm");
-      if (!dateObj.isValid) {
+      console.log(req.body.start_time);
+      let startTime = DateTime.fromFormat(req.body.start_time, "HH:mm");
+      if (!startTime.isValid) {
         throw new Error("Start Time is not a valid Time");
       } else {
         let dateNow = DateTime.now().toFormat("HH:mm");
-        if (req.body.Start_time <= dateNow) {
-          throw new Error("Start_Time should be after current Time");
+        if (startTime <= dateNow) {
+          throw new Error("start_time should be after current Time");
         } else return true;
       }
     }),
@@ -103,21 +103,39 @@ exports.validateHackathon = [
     .notEmpty()
     .trim()
     .custom((value, { req }) => {
-      let Date = req.body.end_time;
-      let dateObj = DateTime.fromFormat(Date, "HH:mm");
-      if (!dateObj.isValid) {
-        throw new Error("end time is not a valid Date");
+      let end_time = DateTime.fromFormat(req.body.end_time, "HH:mm");
+      if (!end_time.isValid) {
+        throw new Error("end time is not a valid time");
       } else {
-        let dateNow = DateTime.now().toFormat("HH:mm");
-        if (req.body.end_time <= dateNow) {
+        if (req.body.start_time >= req.body.end_time) {
           throw new Error("end time should be after start time");
         } else return true;
       }
     }),
 ];
 
+/*exports.isValidRSVP = (req, res, next) => {
+  let rsvp_value = req.body.status.toUpperCase();
+  let values = ["YES", "NO", "MAYBE"];
+  if (!(rsvp_value in values)) {
+    let err = new Error("Rsvp value can be YES, NO, MAYBE");
+    err.status = 400;
+    return next(err);
+  } else {
+    return next();
+  }
+};
+*/
 exports.isValidRSVP = [
-  body("status", "status should be YES, NO or MAYBE")
-    .isEmpty()
-    .isIn(["YES", "NO", "MAYBE"]),
+  body("rsvp_value", "rsvp_value Cannot be empty")
+    .notEmpty()
+    .trim()
+    .escape()
+    .custom((value, { req }) => {
+      let rsvp_value = req.body.rsvp_value.toUpperCase();
+      let values = ["YES", "NO", "MAYBE"];
+      if (values.includes(rsvp_value)) {
+        return true;
+      } else throw new Error("rsvp value can only be Yes, No or Maybe");
+    }),
 ];

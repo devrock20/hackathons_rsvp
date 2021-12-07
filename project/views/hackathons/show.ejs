@@ -7,6 +7,7 @@
             <p><strong>Date : </strong><%= hackathon.date%></p>
             <p><strong>Time : </strong><%= hackathon.start_time%> - <%= hackathon.end_time%></p> 
             <p><strong>Location : </strong><%= hackathon.location%></p>
+            <p><strong>No of people attending the event <%= rsvps%></strong></p>
             <%if(user == hackathon.host_name._id){%>
             <form>
             <button class = "content-btn" type = "submit" formmethod = "GET" formaction="/hackathons/<%= hackathon.id%>/edit">Update</button>
@@ -14,11 +15,10 @@
             </form>
             <%}else{%>
             <p>Rsvp for this event</p>
-            <p><strong>No of people attending the event <%= rsvps%></strong></p>
             <form method="POST">
-                <button class = "content-btn-yes" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Yes" name="status">YES</button>
-                <button class = "content-btn-no" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="No" name="status">NO</button>
-                <button class = "content-btn-maybe" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Maybe" name="status">Maybe</button>    
+                <button class = "content-btn-yes" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Yes" name="rsvp_value">YES</button>
+                <button class = "content-btn-no" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="No" name="rsvp_value">NO</button>
+                <button class = "content-btn-maybe" type = "submit" formaction="/hackathons/<%= hackathon.id%>/rsvp" value="Maybe" name="rsvp_value">Maybe</button>    
             </form>
             <%}%>
         </section>

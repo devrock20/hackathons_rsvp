@@ -124,6 +124,7 @@ exports.update = (req, res, next) => {
 // delete the hackathon.
 exports.delete = (req, res, next) => {
   let id = req.params.id;
+  console.log("in delete call");
   Promise.all([
     model.findByIdAndDelete(id, { useFindAndModify: false }),
     rsvpModel.deleteMany({ hackathon_id: id }),
@@ -143,7 +144,7 @@ exports.delete = (req, res, next) => {
 
 //create new rsvp
 exports.newRsvp = (req, res, next) => {
-  let rsvp_value = req.body.status.toUpperCase();
+  let rsvp_value = req.body.rsvp_value.toUpperCase();
   console.log(rsvp_value);
   rsvpModel
     .find({ hackathon_id: req.params.id, user_id: req.session.user })

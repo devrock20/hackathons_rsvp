@@ -36,6 +36,10 @@ exports.isAuthor = (req, res, next) => {
           err.status = 401;
           return next(err);
         }
+      } else {
+        let err = new Error("Cannot find a hackathon with id " + id);
+        err.status = 404;
+        return next(err);
       }
     })
     .catch((err) => next(err));
