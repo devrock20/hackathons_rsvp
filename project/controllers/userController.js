@@ -75,7 +75,6 @@ exports.profile = (req, res, next) => {
   ])
     .then((results) => {
       const [user, hackathons, rsvps] = results;
-      console.log(rsvps);
       res.render("./user/profile", { user, hackathons, rsvps });
     })
     .catch((err) => next(err));
