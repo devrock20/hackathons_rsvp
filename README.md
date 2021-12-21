@@ -3,7 +3,7 @@ This project shows a list of hackathons which the user can rsvp to
 
 ## Techonology Stack
 * Front End : HTML, CSS
-* Controller : Node.js
+* Controller : Node.js, express
 * Backend : mongo
 
 ## To run
