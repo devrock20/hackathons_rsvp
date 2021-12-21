@@ -6,5 +6,6 @@ This project shows a list of hackathons which the user can rsvp to
 * Controller : Node.js
 * Backend : mongo
 
-## Few Screenshots from the website
+## To run
+Download the git file, run npm install package.json and then run nodemon app.js
 
